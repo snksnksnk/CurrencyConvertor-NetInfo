@@ -79,7 +79,9 @@ extension CurrencyCell:UICollectionViewDelegate{
             cell.textField.keyboardType = .decimalPad
             cell.textField.placeholder = "0.00"
             cell.textField.textAlignment = .center
-            cell.textField.isUserInteractionEnabled = isEditable
+            cell.textField.isUserInteractionEnabled = false// isEditable
+//            cell.textField.clearButtonMode = .unlessEditing
+            
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCellDetails.cellIdentifier, for: indexPath) as! CollectionViewCellDetails
@@ -91,12 +93,23 @@ extension CurrencyCell:UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0{
+            
 //            let tf = collectionView.cellForItem(at: indexPath)?.viewWithTag(778767) as! UITextField
             
 //            tf.becomeFirstResponder()
             
-            let tf = collectionView.cellForItem(at: indexPath) as! CollectionCellTextField
-            tf.textField.becomeFirstResponder()
+//            let tf = collectionView.cellForItem(at: indexPath) as! CollectionCellTextField
+//            tf.textField.becomeFirstResponder()
+            
+            
+            if !CustomKeyboard.shared.isPresented{
+                CustomKeyboard.shared.presentKeyboard()
+            }
+//            keyb.presentKeyboard()
+            
+//            let topcontroller = UIApplication.shared.topViewController() as! ViewController
+//            topcontroller.view.addSubview(keyb)
+            
             
         }else{
             delegate?.didSelectCurrencyChangeDelegate(countryRate: exRate)
@@ -106,8 +119,9 @@ extension CurrencyCell:UICollectionViewDelegate{
 
 //MARK: UITextFieldDelegate
 //extension CurrencyCell: UITextFieldDelegate{
-//    func textFieldDidChangeSelection(_ textField: UITextField) {
-//        print(textField.text)
+//    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+//        print(1)
+//        return false
 //    }
 //}
 
@@ -135,4 +149,36 @@ extension CurrencyCell: UICollectionViewDelegateFlowLayout {
     }
     
     
+}
+
+extension UIApplication {
+    func topViewController() -> UIViewController? {
+        var topViewController: UIViewController? = nil
+        if #available(iOS 13, *) {
+            for scene in connectedScenes {
+                if let windowScene = scene as? UIWindowScene {
+                    for window in windowScene.windows {
+                        if window.isKeyWindow {
+                            topViewController = window.rootViewController
+                        }
+                    }
+                }
+            }
+        } else {
+            topViewController = keyWindow?.rootViewController
+        }
+        while true {
+            if let presented = topViewController?.presentedViewController {
+                topViewController = presented
+            } else if let navController = topViewController as? UINavigationController {
+                topViewController = navController.topViewController
+            } else if let tabBarController = topViewController as? UITabBarController {
+                topViewController = tabBarController.selectedViewController
+            } else {
+                // Handle any other third party container in `else if` if required
+                break
+            }
+        }
+        return topViewController
+    }
 }

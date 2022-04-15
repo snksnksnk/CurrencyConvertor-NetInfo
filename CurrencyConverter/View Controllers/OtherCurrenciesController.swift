@@ -33,14 +33,12 @@ class OtherCurrenciesController:UIViewController{
         self.navigationItem.rightBarButtonItem = barbutton
         self.title = "Exchange to"
         self.navigationController!.navigationBar.prefersLargeTitles = true
-        
     }
     
     override func viewDidLoad() {
         tableView = UITableView(frame: self.view.bounds, style: .insetGrouped)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
         tableView.register(CCell.nib(), forCellReuseIdentifier: "ce")
-//        tableView.register(CCell.self, forCellReuseIdentifier: "ce")
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -59,6 +57,10 @@ extension OtherCurrenciesController:UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return exRates.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 45
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

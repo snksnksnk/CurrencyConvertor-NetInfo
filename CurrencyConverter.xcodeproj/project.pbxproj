@@ -32,6 +32,10 @@
 		550FC800280969E200261CB8 /* OtherCurrenciesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550FC7FF280969E200261CB8 /* OtherCurrenciesController.swift */; };
 		550FC8022809970600261CB8 /* CCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550FC8012809970600261CB8 /* CCell.swift */; };
 		550FC804280998E600261CB8 /* CCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550FC803280998E600261CB8 /* CCell.xib */; };
+		550FC8092809A74200261CB8 /* CustomKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550FC8082809A74200261CB8 /* CustomKeyboard.swift */; };
+		550FC80B2809A93300261CB8 /* CustomKeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550FC80A2809A93300261CB8 /* CustomKeyboardButton.swift */; };
+		550FC80D2809A94400261CB8 /* CustomKeyboardButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550FC80C2809A94400261CB8 /* CustomKeyboardButton.xib */; };
+		550FC80F2809BC8700261CB8 /* conversion.json in Resources */ = {isa = PBXBuildFile; fileRef = 550FC80E2809BC8700261CB8 /* conversion.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +82,10 @@
 		550FC7FF280969E200261CB8 /* OtherCurrenciesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherCurrenciesController.swift; sourceTree = "<group>"; };
 		550FC8012809970600261CB8 /* CCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCell.swift; sourceTree = "<group>"; };
 		550FC803280998E600261CB8 /* CCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CCell.xib; sourceTree = "<group>"; };
+		550FC8082809A74200261CB8 /* CustomKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomKeyboard.swift; sourceTree = "<group>"; };
+		550FC80A2809A93300261CB8 /* CustomKeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomKeyboardButton.swift; sourceTree = "<group>"; };
+		550FC80C2809A94400261CB8 /* CustomKeyboardButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomKeyboardButton.xib; sourceTree = "<group>"; };
+		550FC80E2809BC8700261CB8 /* conversion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = conversion.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +151,7 @@
 				550FC7B6280863FA00261CB8 /* Assets.xcassets */,
 				550FC7B8280863FA00261CB8 /* LaunchScreen.storyboard */,
 				550FC7BB280863FA00261CB8 /* Info.plist */,
+				550FC80E2809BC8700261CB8 /* conversion.json */,
 			);
 			path = CurrencyConverter;
 			sourceTree = "<group>";
@@ -207,6 +216,9 @@
 			isa = PBXGroup;
 			children = (
 				550FC7FA2809589400261CB8 /* UIExtesions.swift */,
+				550FC8082809A74200261CB8 /* CustomKeyboard.swift */,
+				550FC80A2809A93300261CB8 /* CustomKeyboardButton.swift */,
+				550FC80C2809A94400261CB8 /* CustomKeyboardButton.xib */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -335,12 +347,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				550FC7BA280863FA00261CB8 /* LaunchScreen.storyboard in Resources */,
+				550FC80D2809A94400261CB8 /* CustomKeyboardButton.xib in Resources */,
 				550FC7F328094BAF00261CB8 /* CurrencyCell.xib in Resources */,
 				550FC7FE2809619C00261CB8 /* CollectionCellTextField.xib in Resources */,
 				550FC7F92809553B00261CB8 /* CollectionViewCellDetails.xib in Resources */,
 				550FC804280998E600261CB8 /* CCell.xib in Resources */,
 				550FC7B7280863FA00261CB8 /* Assets.xcassets in Resources */,
 				550FC7B5280863F900261CB8 /* Main.storyboard in Resources */,
+				550FC80F2809BC8700261CB8 /* conversion.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,9 +382,11 @@
 				550FC7FB2809589400261CB8 /* UIExtesions.swift in Sources */,
 				550FC7EB2809406D00261CB8 /* CustomError.swift in Sources */,
 				550FC7E728086D8600261CB8 /* ApiManager.swift in Sources */,
+				550FC80B2809A93300261CB8 /* CustomKeyboardButton.swift in Sources */,
 				550FC7B2280863F900261CB8 /* ViewController.swift in Sources */,
 				550FC7ED28094AF400261CB8 /* ImageManager.swift in Sources */,
 				550FC8022809970600261CB8 /* CCell.swift in Sources */,
+				550FC8092809A74200261CB8 /* CustomKeyboard.swift in Sources */,
 				550FC7F128094BA600261CB8 /* CurrencyCell.swift in Sources */,
 				550FC7F528094F5300261CB8 /* CollectionCellTextField.swift in Sources */,
 				550FC7F7280954FE00261CB8 /* CollectionViewCellDetails.swift in Sources */,
@@ -559,6 +575,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -587,6 +604,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

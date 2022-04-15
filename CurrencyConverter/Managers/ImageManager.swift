@@ -24,8 +24,6 @@ class ImageManager{
         memoryCapacity: 100_000_000,
         preferredMemoryUsageAfterPurge: 60_000_000
     )
-    
-//    func getCountryImage(url:String, customSize:CGSize, indexPath:IndexPath){
         
     
     func getCountryImage(url:String, customSize:CGSize, completion:@escaping(_ image:UIImage, _ error:Error?)->Void){
@@ -39,22 +37,17 @@ class ImageManager{
                     imageCache.add(image, for: urlRequest, withIdentifier: "countryImage")
                     
                         completion(image, nil)
-//                    delegate?.gotImage(image: image, error: nil, indexPath: indexPath)
                 }
                 
                 if case .failure(let error) = response.result{
-//                    delegate?.gotImage(image: nil, error: error, indexPath: indexPath)
                     completion(UIImage(), error)
                 }
             }
             
         }else{
             if customSize == .zero{
-//                delegate?.gotImage(image: getFromCache(url: url), error: nil, indexPath: indexPath)
                 completion(getFromCache(url: url), nil)
             }else{
-//                delegate?.gotImage(image: getFromCache(url: url), error: nil, indexPath: indexPath)
-
                 completion(getFromCache(url: url), nil)
             }
         }

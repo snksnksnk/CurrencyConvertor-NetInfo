@@ -1,0 +1,209 @@
+{
+  "status" : "Success",
+  "statusCode" : "200",
+  "data" : {
+    "country" : {
+      "imageURL" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/KES.png",
+      "countryCode" : "KE0010001",
+      "name" : "KENYA"
+    },
+    "baseExchangeRate" : {
+      "buyRate" : 1,
+      "currency" : "Kenyan Shilling",
+      "reverseRate" : false,
+      "decimalPlaces" : "2",
+      "sellRate" : 1,
+      "currencyCode" : "KES",
+      "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/KES.png"
+    },
+    "lastUpdate" : "07\/12\/2021 08:50:15.0",
+    "exchangeRates" : [
+      {
+        "buyRate" : 77.629999999999995,
+        "currency" : "Australian Dollar",
+        "sellRate" : 90.230000000000004,
+        "decimalPlaces" : "2",
+        "currencyCode" : "AUD",
+        "reverseRate" : true,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/AUD.png"
+      },
+      {
+        "buyRate" : 80.829999999999998,
+        "currency" : "Canadian Dollar",
+        "sellRate" : 93.430000000000007,
+        "decimalPlaces" : "2",
+        "currencyCode" : "CAD",
+        "reverseRate" : true,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/CAD.png"
+      },
+      {
+        "buyRate" : 109.36,
+        "currency" : "Swiss Franc",
+        "sellRate" : 124.11,
+        "decimalPlaces" : "2",
+        "currencyCode" : "CHF",
+        "reverseRate" : true,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/CHF.png"
+      },
+      {
+        "buyRate" : 12.33,
+        "currency" : "Danish Krone",
+        "sellRate" : 22.420000000000002,
+        "decimalPlaces" : "2",
+        "currencyCode" : "DKK",
+        "reverseRate" : true,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/DKK.png"
+      },
+      {
+        "buyRate" : 121.79000000000001,
+        "currency" : "Euro",
+        "sellRate" : 136.59999999999999,
+        "decimalPlaces" : "2",
+        "currencyCode" : "EUR",
+        "reverseRate" : true,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/EUR.png"
+      },
+      {
+        "buyRate" : 143.47,
+        "currency" : "Pound Sterling",
+        "sellRate" : 160.19999999999999,
+        "decimalPlaces" : "2",
+        "currencyCode" : "GBP",
+        "reverseRate" : true,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/GBP.png"
+      },
+      {
+        "buyRate" : 1.27,
+        "currency" : "Indian Rupee",
+        "sellRate" : 1.75,
+        "decimalPlaces" : "2",
+        "currencyCode" : "INR",
+        "reverseRate" : true,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/INR.png"
+      },
+      {
+        "buyRate" : 0.95499999999999996,
+        "currency" : "Yen",
+        "sellRate" : 1.0449999999999999,
+        "decimalPlaces" : "0",
+        "currencyCode" : "JPY",
+        "reverseRate" : false,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/JPY.png"
+      },
+      {
+        "buyRate" : 7.7800000000000002,
+        "currency" : "Norwegian Krone",
+        "sellRate" : 17.84,
+        "decimalPlaces" : "2",
+        "currencyCode" : "NOK",
+        "reverseRate" : true,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/NOK.png"
+      },
+      {
+        "currencyCode" : "NZD",
+        "buyRate" : 70.799999999999997,
+        "sellRate" : 81.049999999999997,
+        "decimalPlaces" : "2",
+        "reverseRate" : false,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/NZD.png"
+      },
+      {
+        "buyRate" : 7.6100000000000003,
+        "currency" : "Swedish Krona",
+        "sellRate" : 17.670000000000002,
+        "decimalPlaces" : "2",
+        "currencyCode" : "SEK",
+        "reverseRate" : true,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/SEK.png"
+      },
+      {
+        "buyRate" : 104.34999999999999,
+        "currency" : "US Dollar",
+        "sellRate" : 115.05,
+        "decimalPlaces" : "2",
+        "currencyCode" : "USD",
+        "reverseRate" : true,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/USD.png"
+      },
+      {
+        "buyRate" : 4.6900000000000004,
+        "currency" : "Rand",
+        "sellRate" : 9.9299999999999997,
+        "decimalPlaces" : "2",
+        "currencyCode" : "ZAR",
+        "reverseRate" : true,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/ZAR.png"
+      },
+      {
+        "buyRate" : 15.92,
+        "currency" : "Burundi Franc",
+        "sellRate" : 19.23,
+        "decimalPlaces" : "0",
+        "currencyCode" : "BIF",
+        "reverseRate" : false,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/BIF.png"
+      },
+      {
+        "buyRate" : 14.52,
+        "currency" : "Yuan Renminbi",
+        "sellRate" : 17.68,
+        "decimalPlaces" : "2",
+        "currencyCode" : "CNY",
+        "reverseRate" : true,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/CNY.png"
+      },
+      {
+        "buyRate" : 7.7599999999999998,
+        "currency" : "Rwanda Franc",
+        "sellRate" : 10.279999999999999,
+        "decimalPlaces" : "0",
+        "currencyCode" : "RWF",
+        "reverseRate" : false,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/RWF.png"
+      },
+      {
+        "buyRate" : 26.289999999999999,
+        "currency" : "UAE Dirham",
+        "sellRate" : 33.439999999999998,
+        "decimalPlaces" : "2",
+        "currencyCode" : "AED",
+        "reverseRate" : true,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/AED.png"
+      },
+      {
+        "buyRate" : 31.350000000000001,
+        "currency" : "Uganda Shilling",
+        "sellRate" : 35.409999999999997,
+        "decimalPlaces" : "0",
+        "currencyCode" : "UGX",
+        "reverseRate" : false,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/UGX.png"
+      },
+      {
+        "buyRate" : 19.219999999999999,
+        "currency" : "Tanzanian Shilling",
+        "sellRate" : 23.219999999999999,
+        "decimalPlaces" : "2",
+        "currencyCode" : "TZS",
+        "reverseRate" : false,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/TZS.png"
+      },
+      {
+        "buyRate" : 0.57999999999999996,
+        "currency" : "South Sudanese Pound",
+        "sellRate" : 0.60999999999999999,
+        "decimalPlaces" : "2",
+        "currencyCode" : "SSP",
+        "reverseRate" : false,
+        "imgUrl" : "https:\/\/demo32.netteller.com.cy\/netteller-war\/resources\/images\/flags\/SSP.png"
+      }
+    ]
+  },
+  "links" : {
+    "self" : "http:\/\/10.100.10.91:8080\/netteller-apis-war\/apis\/systemTools\/exchangeRatesInfo"
+  },
+  "meta" : {
+    "totalPages" : "1"
+  },
+  "message" : "OK"
+}

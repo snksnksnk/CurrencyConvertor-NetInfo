@@ -14,21 +14,33 @@ class ViewController: UIViewController, UITableViewDataSource {
     var exRates:[APIManager.ExchangeRate]!
     var bRate:APIManager.ExchangeRate!
     var selectedCurrency:APIManager.ExchangeRate!
-    
+    var spinner:UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView = UITableView(frame: self.view.bounds, style: .insetGrouped)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
         tableView.register(CurrencyCell.nib(), forCellReuseIdentifier: CurrencyCell.cellIdentifier)
+        spinner = UIActivityIndicatorView(frame: self.view.bounds)
+        spinner.startAnimating()
+        tableView.backgroundView = spinner
         
         self.view.addSubview(tableView)
+
+        
         fetch()
     }
     
     func fetch(){
+//        APIManager.shared.fetchLocal { [self] baseRate, otherRates, error in
+            
         APIManager.shared.fetchInfo { [self] baseRate, otherRates, error in
             if error != nil{
+                spinner.stopAnimating()
+                spinner.removeFromSuperview()
+                
+                tableView.setEmptyView(title: "Something went wrong", message: "Please try again later or\ncontact the admin")
+                
                 let alert = UIAlertController(title: "Error", message: error!.localizedDescription, preferredStyle: .alert)
                 let action = UIAlertAction(title: "OK", style: .default)
                 alert.addAction(action)
@@ -58,7 +70,7 @@ extension ViewController:CurrencyChangeDelegate{
         otherCurrenciesCon.delegate = self
         let nC = UINavigationController(rootViewController: otherCurrenciesCon)
         nC.modalPresentationStyle = .formSheet
-        
+
         self.present(nC, animated: true)
     }
 }
@@ -69,6 +81,35 @@ extension ViewController:OtherRatesDelegate{
         selectedCurrency = currency
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! CurrencyCell
         cell.updateData(rate: currency)
+    }
+}
+
+extension ViewController:CustomKeyboardDelegate{
+    func didPressDone() {
+        CustomKeyboard.shared.dismissKeyboard()
+        
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! CurrencyCell
+        let colCel = cell.collectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as! CollectionCellTextField
+//        colCel.textField.resignFirstResponder()
+        
+        let cell2 = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! CurrencyCell
+        let colCel2 = cell2.collectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as! CollectionCellTextField
+        
+        if colCel.textField.text != ""{
+        colCel2.textField.text = String(format:"%.2f",calculate(amount: colCel.textField.text!, toCurrency: selectedCurrency))
+        }
+    }
+    
+    func didType(number: String) {
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! CurrencyCell
+        let colCel = cell.collectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as! CollectionCellTextField
+        colCel.textField.text?.append(number)
+    }
+    
+    func didPressDelete() {
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! CurrencyCell
+        let colCel = cell.collectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as! CollectionCellTextField
+        colCel.textField.text?.removeLast()
     }
 }
 
@@ -154,8 +195,10 @@ extension ViewController:UITableViewDelegate{
             
             let cell2 = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! CurrencyCell
             let colCel2 = cell2.collectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as! CollectionCellTextField
-            colCel2.textField.text = String(calculate(amount: colCel.textField.text!, toCurrency: selectedCurrency))
             
+            if colCel.textField.text != ""{
+                colCel2.textField.text = String(format:"%.2f",calculate(amount: colCel.textField.text!, toCurrency: selectedCurrency))
+            }
            
         default:
             break
