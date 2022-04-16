@@ -31,7 +31,7 @@ class OtherCurrenciesController:UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         let barbutton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissController))
         self.navigationItem.rightBarButtonItem = barbutton
-        self.title = "Exchange to"
+        self.title = "Exchange to".localize()
         self.navigationController!.navigationBar.prefersLargeTitles = true
     }
     

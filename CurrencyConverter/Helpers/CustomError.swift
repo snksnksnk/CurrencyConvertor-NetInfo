@@ -30,4 +30,11 @@ extension CError:LocalizedError{
             return NSLocalizedString("No data found", comment: "No data in file")
         }
     }
+    
+    public var code:Int?{
+        switch self {
+        case .noData:
+            return 666
+        }
+    }
 }

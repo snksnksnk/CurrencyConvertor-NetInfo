@@ -75,12 +75,10 @@ extension CurrencyCell:UICollectionViewDelegate{
         
         if indexPath.row % 2 == 0{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionCellTextField.cellIdentifier, for: indexPath) as! CollectionCellTextField
-//            cell.textField.delegate = self
             cell.textField.keyboardType = .decimalPad
             cell.textField.placeholder = "0.00"
             cell.textField.textAlignment = .center
             cell.textField.isUserInteractionEnabled = false// isEditable
-//            cell.textField.clearButtonMode = .unlessEditing
             
             return cell
         }else{
@@ -94,22 +92,9 @@ extension CurrencyCell:UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0{
             
-//            let tf = collectionView.cellForItem(at: indexPath)?.viewWithTag(778767) as! UITextField
-            
-//            tf.becomeFirstResponder()
-            
-//            let tf = collectionView.cellForItem(at: indexPath) as! CollectionCellTextField
-//            tf.textField.becomeFirstResponder()
-            
-            
             if !CustomKeyboard.shared.isPresented{
                 CustomKeyboard.shared.presentKeyboard()
             }
-//            keyb.presentKeyboard()
-            
-//            let topcontroller = UIApplication.shared.topViewController() as! ViewController
-//            topcontroller.view.addSubview(keyb)
-            
             
         }else{
             delegate?.didSelectCurrencyChangeDelegate(countryRate: exRate)

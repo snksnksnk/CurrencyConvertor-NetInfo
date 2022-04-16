@@ -31,9 +31,7 @@ class APIManager{
     
    
     func fetchLocal(completion:@escaping(_ baseRate:ExchangeRate?, _ otherRates:[ExchangeRate], _ error:Error?)->Void){
-        let data = Bundle.main.url(forResource: "conversion", withExtension: "json")
-//        var country:[Country] = []
-        
+        let data = Bundle.main.url(forResource: "conversion", withExtension: "json")        
         do {
             let jsonData = try? Data(contentsOf: data!)
             let newJSONDecoder = JSONDecoder()
@@ -51,7 +49,7 @@ class APIManager{
     
     func fetchInfo(completion:@escaping(_ baseRate:ExchangeRate?, _ otherRates:[ExchangeRate], _ error:Error?)->Void){
         AF.request(APIManager.apiUrl, method: .get, parameters: [:], encoding: URLEncoding.default, headers: headers())
-        {$0.timeoutInterval = 10}
+        {$0.timeoutInterval = 15}
             .validate(statusCode: 200..<600)
             .response { response in
                 print(response)
@@ -88,6 +86,8 @@ class APIManager{
                                 error = "Bad Url"
                             case .cancelled:
                                 error = "Request has been Cancelled"
+                            case .fileDoesNotExist:
+                                error = "File does not exist"
                             default:
                                 error = "Unmanaged error"
                             }

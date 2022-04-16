@@ -29,20 +29,28 @@ class ViewController: UIViewController, UITableViewDataSource {
 
         
         fetch()
+//        fetchFromLocalDB()
     }
     
     func fetch(){
-//        APIManager.shared.fetchLocal { [self] baseRate, otherRates, error in
             
         APIManager.shared.fetchInfo { [self] baseRate, otherRates, error in
             if error != nil{
-                spinner.stopAnimating()
-                spinner.removeFromSuperview()
                 
-                tableView.setEmptyView(title: "Something went wrong", message: "Please try again later or\ncontact the admin")
                 
-                let alert = UIAlertController(title: "Error", message: error!.localizedDescription, preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .default)
+                tableView.setEmptyView(title: "Something went wrong".localize(), message: "Please try again later or\ncontact the admin".localize())
+                
+                let alert = UIAlertController(title: "Error".localize(), message: error!.localizedDescription, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .destructive)
+                
+                
+                if error is CError || (error as! URLError).code == .timedOut{
+                    let loadLocal = UIAlertAction(title: "Local JSON", style: .default) { [self] action in
+                        fetchFromLocalDB()
+                    }
+                    alert.addAction(loadLocal)
+                }
+                
                 alert.addAction(action)
                 self.present(alert, animated: true)
             }else{
@@ -53,7 +61,41 @@ class ViewController: UIViewController, UITableViewDataSource {
                 tableView.delegate = self
                 tableView.dataSource = self
                 tableView.reloadData()
+                spinner.stopAnimating()
+                spinner.removeFromSuperview()
+                tableView.backgroundView = nil
             }
+            
+            
+        }
+    }
+    
+    
+    func fetchFromLocalDB(){
+        APIManager.shared.fetchLocal { [self] baseRate, otherRates, error in
+            
+            if error != nil{
+                tableView.setEmptyView(title: "Something went wrong".localize(), message: "Please try again later or\ncontact the admin".localize())
+                
+                let alert = UIAlertController(title: "Error".localize(), message: error!.localizedDescription, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default)
+                alert.addAction(action)
+ 
+                self.present(alert, animated: true)
+            }else{
+                exRates = otherRates
+                bRate = baseRate!
+                selectedCurrency = otherRates[0]
+                
+                tableView.delegate = self
+                tableView.dataSource = self
+                tableView.reloadData()
+                spinner.stopAnimating()
+                spinner.removeFromSuperview()
+                tableView.backgroundView = nil
+            }
+            
+            
         }
     }
     
@@ -90,7 +132,6 @@ extension ViewController:CustomKeyboardDelegate{
         
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! CurrencyCell
         let colCel = cell.collectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as! CollectionCellTextField
-//        colCel.textField.resignFirstResponder()
         
         let cell2 = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! CurrencyCell
         let colCel2 = cell2.collectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as! CollectionCellTextField
@@ -119,9 +160,9 @@ extension ViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
         case 0:
-            return "Available Rates"
+            return "Available Rates".localize()
         case 1:
-            return "Base Rate"
+            return "Base Rate".localize()
         default:
             return ""
         }
@@ -168,7 +209,7 @@ extension ViewController:UITableViewDelegate{
         }else{
             let buttonCell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
             var cellConfig = buttonCell.defaultContentConfiguration()
-            cellConfig.text = "Convert"
+            cellConfig.text = "Convert".localize()
             cellConfig.textProperties.alignment = .center
             
             var backConfig = buttonCell.backgroundConfiguration

@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  CurrencyConverter
+
+  Created by Demetris Georgiou on 16/04/2022.
+  
+*/
+
+
+"Something went wrong" = "Κάτι πήγε λάθος";
+"Please try again later or\ncontact the admin" = "Δοκιμάστε ξανά αργότερα ή\nεπικοινωνήστε με τον διαχειριστή";
+"Error" = "Σφάλμα";
+"Convert" = "Μετατροπή";
+"Available Rates" = "Διαθέσιμες Τιμές";
+"Base Rate" = "Βασική Τιμή";
+"Exchange to" = "Μετατροπή σε";

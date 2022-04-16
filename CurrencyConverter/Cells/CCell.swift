@@ -23,11 +23,18 @@ class CCell:UITableViewCell{
     var selectedCurrency:APIManager.ExchangeRate!
     
     func setupCell(rate:APIManager.ExchangeRate){
-        titleL.text = rate.currency
         
+        if rate.currency != nil{
+            titleL.text = rate.currency?.localize()
+        }else{
+            titleL.text = rate.currencyCode
+        }
         ImageManager.shared.getCountryImage(url: rate.imgURL, customSize: .zero, completion: { [self] image, error in
             if error != nil{
                 print(error?.localizedDescription as Any)
+                let imConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .small)
+                let placeholder = UIImage(systemName: "photo.circle",withConfiguration: imConfig)
+                imageV.image = placeholder
             }else{
                 imageV.image = image
             }
@@ -38,5 +45,9 @@ class CCell:UITableViewCell{
         }else{
             self.accessoryType = .none
         }
+        
+        
     }
+    
+    
 }

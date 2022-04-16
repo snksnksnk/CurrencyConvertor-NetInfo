@@ -29,10 +29,6 @@ class CustomKeyboard:UIView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        super.init(frame: CGRect(x: 0, y: UIScreen.main.bounds.height + 10, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/2.7))
-//        let topcontroller = UIApplication.shared.topViewController() as! ViewController
-//        topcontroller.view.addSubview(self)
-//        self.delegate = topcontroller
     }
     
     required init?(coder: NSCoder) {
@@ -51,7 +47,6 @@ class CustomKeyboard:UIView{
         collectionView.delegate = self
         collectionView.dataSource = self
         
-//        collectionView.backgroundColor = .systemBlue
         
         self.layer.shadowColor = UIColor.systemGray.cgColor
         self.layer.shadowRadius = 5
@@ -87,15 +82,15 @@ class CustomKeyboard:UIView{
         
     }
     
-    public func toggle(){
-        if isPresented{
-           
-
-        }else{
-           
-        }
-        isPresented.toggle()
-    }
+//    public func toggle(){
+//        if isPresented{
+//           
+//
+//        }else{
+//           
+//        }
+//        isPresented.toggle()
+//    }
 }
 
 extension CustomKeyboard:UICollectionViewDelegate{
@@ -115,13 +110,11 @@ extension CustomKeyboard:UICollectionViewDataSource{
         
         cell.cLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         cell.cLabel.textAlignment = .center
-//        cell.layer.borderColor = UIColor.black.cgColor
-//        cell.layer.borderWidth = 1
         
         if buttons[indexPath.row] == "Done"{
-//            cell.cLabel.backgroundColor = .systemBlue.withAlphaComponent(0.5)
             cell.cLabel.text = buttons[indexPath.row]
             cell.cLabel.textColor = .systemBlue.withAlphaComponent(0.9)
+            cell.cLabel.backgroundColor = .systemBlue.withAlphaComponent(0.15)
         }else if buttons[indexPath.row] == "delete"{
             
             let configIm = UIImage.SymbolConfiguration(pointSize: 30, weight: .light, scale: .small)
@@ -132,18 +125,16 @@ extension CustomKeyboard:UICollectionViewDataSource{
                 fullString.append(NSMutableAttributedString(attachment: imageAttachment))
             
                 cell.cLabel.attributedText = fullString
-                cell.cLabel.backgroundColor = .white
+            cell.cLabel.backgroundColor = .systemRed.withAlphaComponent(0.15)
         }else{
-//            cell.backgroundColor = .clear
             cell.cLabel.text = buttons[indexPath.row]
-            cell.cLabel.backgroundColor = .white
+            cell.cLabel.backgroundColor = .systemBackground
         }
-        cell.cLabel.layer.shadowColor = UIColor.black.cgColor
-        cell.cLabel.layer.shadowOffset = .zero
-        cell.cLabel.layer.shadowRadius = 2
-        cell.cLabel.layer.shadowOpacity = 1
-        cell.cLabel.layer.masksToBounds = false
-        cell.cLabel.backgroundColor = .white
+//        cell.cLabel.layer.shadowColor = UIColor.black.cgColor
+//        cell.cLabel.layer.shadowOffset = .zero
+//        cell.cLabel.layer.shadowRadius = 2
+//        cell.cLabel.layer.shadowOpacity = 1
+//        cell.cLabel.layer.masksToBounds = false
         cell.cLabel.layer.cornerRadius = 8
         cell.cLabel.clipsToBounds = true
         
@@ -151,7 +142,6 @@ extension CustomKeyboard:UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print(buttons[indexPath.row])
         if buttons[indexPath.row] == "Done"{
             delegate?.didPressDone()
         }else if buttons[indexPath.row] == "delete"{

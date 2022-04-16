@@ -16,13 +16,4 @@ class CollectionCellTextField:UICollectionViewCell{
         return UINib(nibName: "CollectionCellTextField", bundle: nil)
     }
     
-//    func setupCell(){
-////        textField.delegate = self
-//        textField.placeholder = "0.00"
-//        textField.keyboardType = .numberPad
-//    }
 }
-
-//extension CollectionCellTextField:UITextFieldDelegate{
-//    
-//}
